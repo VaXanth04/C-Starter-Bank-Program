@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1793710422 source:c:\users\games\desktop\ena\bank menu\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
+1793730653 source:c:\users\games\desktop\codeblocks\bank menu\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
