@@ -5,7 +5,8 @@
 int main()
 {
     float balance = 53.41;
-    float code;
+    int answerpin;
+    int code = 9691;
     int attempts = 3;
     float addmoney;
     int y;
@@ -17,17 +18,18 @@ int main()
     printf("                                                    1. Check Balance\n");
     printf("                                                    2. Deposit Money\n");
     printf("                                                    3. Withdraw Money\n");
-    printf("                                                    4. Exit\n\n");
+    printf("                                                    4. Change PIN\n");
+    printf("                                                    5. Exit\n\n");
     printf("========================================================================================================================\n\n");
     Sleep(1000);
     printf("                                                         Loading...\n\n");
     Sleep(2000);
     printf("                                             Please enter your 4 digit PIN code: \n");
 
-    while(code != 9691 && attempts > 0){
-        scanf("%f", &code);
+    while(code != answerpin && attempts > 0){
+        scanf("%d", &answerpin);
 
-        if(code != 9691 ){
+        if(code != answerpin ){
             attempts--;
             printf("                                               \033[31mWrong PIN!(%d attempts remaining)\033[0m\n", attempts);
 
@@ -43,7 +45,7 @@ int main()
     Sleep(2000);
     printf("                             \033[32mYou are now logged into your account! Choose an option from the menu!\033[0m\n");
     scanf("%d", &y);
-    while (y != 4){
+    while (y != 5){
         if (y == 1){
             printf("=======================================================================================================================\n");
             printf("                                               Your balance is at %.2f $ !\n", balance);
@@ -83,7 +85,30 @@ int main()
             }
             printf("\nChoose another option: ");
             scanf("%d", &y);
-        }while (y > 4 || y < 1){
+        }else if(y == 4){
+            printf("Please type you current PIN: \n");
+            scanf("%d", &answerpin);
+            if(answerpin == code){
+                printf("Yoy may proceed!\n");
+                printf("Please type your new PIN: \n");
+                scanf("%d", &answerpin);
+                code == answerpin;
+                printf("Your PIN has changed successfully!\n");
+                printf("\nChoose another option: ");
+                scanf("%d", &y);
+
+            }else{
+                while(answerpin != code){
+                    printf("That is not the right PIN! Please try again!\n");
+                    scanf("%d", &answerpin);
+                }
+
+            }
+
+        }else if(y == 5){
+        printf("Session Terminated!");
+            return 0;}
+        while (y > 4 || y < 1){
             printf("\033[31mThat is not an option! Please try again!\033[0m\n");
             scanf("%d", &y); }
 
