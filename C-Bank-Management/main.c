@@ -11,6 +11,9 @@ int main()
     float addmoney;
     int y;
 
+    LOGIN:
+    answerpin = 0;
+
     printf("========================================================================================================================\n");
     printf("                                                         BANK MENU\n");
     printf("========================================================================================================================\n\n");
@@ -92,15 +95,17 @@ int main()
                 printf("Yoy may proceed!\n");
                 printf("Please type your new PIN: \n");
                 scanf("%d", &answerpin);
-                code == answerpin;
+                code = answerpin;
                 printf("Your PIN has changed successfully!\n");
-                printf("\nChoose another option: ");
-                scanf("%d", &y);
+                printf("Logging Out...\n");
+                Sleep(2000);
+                goto LOGIN;
 
             }else{
                 while(answerpin != code){
-                    printf("That is not the right PIN! Please try again!\n");
+                    printf("That is not the right PIN! Please type OK to try again!\n");
                     scanf("%d", &answerpin);
+
                 }
 
             }
